@@ -2,7 +2,7 @@
 
 ### Live demo
 
-Visit [https://oussema-colorgame.herokuapp.com/](https://oussema-colorgame.herokuapp.com/) for the live version of the app
+Visit [https://credit-cards-crud.herokuapp.com/cards](https://credit-cards-crud.herokuapp.com/cards) for the live version of the app
 
 A crud app to manage credit cards
 
