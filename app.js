@@ -61,10 +61,13 @@ app.get('/cards/:id', async (req, res) => {
 		const card = await Card.findById(req.params.id);
 		switch (card.type) {
 			case 'Visa':
+				res.locals.imgUrl = 'https://imgur.com/wKdGHeY.png';
 				return res.render('visa', { card });
 			case 'Master Card':
+				res.locals.imgUrl = 'https://imgur.com/THvKDKD.png';
 				return res.render('master', { card });
 			case 'BestBank':
+				res.locals.imgUrl = 'https://imgur.com/LZeW6hy.png';
 				return res.render('best', { card });
 		}
 	} catch (err) {

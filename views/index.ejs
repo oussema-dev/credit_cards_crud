@@ -32,15 +32,7 @@
                 <div class="content">
                     <div class="ui small image">
                         <a class="header" href="/cards/<%= card._id %>">
-                            <% if(card.type === 'Visa'){ %>
-                            <img src="https://imgur.com/wKdGHeY.png">
-                            <% } %>
-                            <% else if(card.type === 'Master Card') %>
-                            <img src="https://imgur.com/THvKDKD.png">
-                            <% } %>
-                            <% else if(card.type === 'BestBank') %>
-                            <img src="https://imgur.com/LZeW6hy.png">
-                            <% } %>
+                            <img src="<%= imgUrl %>">
                         </a>
                     </div>
                 </div>
