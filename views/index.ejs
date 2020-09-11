@@ -1,0 +1,42 @@
+<%- include('./partials/header'); -%>
+<div class="ui main text container">
+    <div id="flashmsg">
+        <% if(success && success.length > 0) { %>
+        <div class="ui green message">
+            <div class="header"><%= success %></div>
+        </div>
+        <% } %>
+        <% if(error && error.length > 0) { %>
+        <div class="ui red message">
+            <div class="header"><%= error %></div>
+        </div>
+        <% } %>
+    </div>
+    <div class="ui huge header">All Credit Cards</div>
+    <div class="ui top  attached segment">
+        <div class="ui divided items">
+            <% cards.forEach(function(card){ %>
+            <div class="item">
+                <div class="content">
+                    <a class="header" href="/cards/<%= card._id %>"><%=card.type%></a>
+                    <div class="meta">
+                        <span><%= card.user%></span>
+                    </div>
+                    <div class="description">
+                        Expires on: <span><%- card.expiry.toDateString() %></span>
+                    </div>
+                </div>
+                <% for( let i = 0; i < 40; i++) { %>
+                <div class="content"></div>
+                <% } %>
+                <div class="content">
+                    <div class="ui small image">
+                        <a class="header" href="/cards/<%= card._id %>"><img src="/images/<%= card.type %>.png"></a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer'); -%>

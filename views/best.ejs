@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Cards</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/best.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+</head>
+
+<body>
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <a href="/cards" class="item">All Credit Cards</a>
+            <a href="/cards/new" class="item">New Credit Card</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="bank-name" title="BestBank">BestBank</div>
+        <div class="chip">
+            <div class="side left"></div>
+            <div class="side right"></div>
+            <div class="vertical top"></div>
+            <div class="vertical bottom"></div>
+        </div>
+        <div class="data">
+            <div class="pan" title="4123 4567 8910 1112"><%= card.number %></div>
+            <div class="first-digits">CVV2: <%= card.cvv2 %></div>
+            <div class="exp-date-wrapper">
+                <div class="left-label">EXPIRY Date</div>
+                <div class="exp-date">
+
+                    <div class="date" title="01/17"><%- card.expiry.toISOString().substring(0, 10) %></div>
+                </div>
+            </div>
+            <div class="name-on-card" title="John Doe"><%= card.user %></div>
+        </div>
+        <div class="lines-down"></div>
+        <div class="lines-up"></div>
+    </div>
+    <div class="form">
+        <br>
+        <a class="ui orange basic button" href="/cards/<%= card._id %>/edit">Edit</a>
+        <form id="delete" action="/cards/<%= card._id %>?_method=DELETE" method="POST">
+            <button class="ui red basic button">Delete</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

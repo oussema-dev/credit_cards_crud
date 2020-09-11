@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Cards</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/visa.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+</head>
+
+<body>
+    <div class="ui fixed inverted menu">
+        <div class="ui container">
+            <a href="/cards" class="item">All Credit Cards</a>
+            <a href="/cards/new" class="item">New Credit Card</a>
+        </div>
+    </div>
+    <div class="credit-card-wrap">
+        <div class="mk-icon-world-map"></div>
+        <div class="credit-card-inner">
+            <header class="header">
+                <div class="credit-logo">
+                    <div class="shape"><span class="txt">PB</span></div> <span class="text">VISA</span>
+                </div>
+            </header>
+            <div class="mk-icon-sim"></div>
+            <div class="credit-font credit-card-number" data-text="Cvv2: <%= card.cvv2 %>"><%= card.number %></div>
+            <footer class="footer">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <div class="credit-card-date"><span class="title">Expires End</span><span
+                                class="credit-font"><%- card.expiry.toISOString().substring(0, 10) %></span></div>
+                        <div class="credit-font credit-author"><%= card.user %></div>
+                    </div>
+                    <div class="pull-right">
+                        <div class="mk-icon-visa"></div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div class="form">
+            <br>
+            <a class="ui orange basic button" href="/cards/<%= card._id %>/edit">Edit</a>
+            <form id="delete" action="/cards/<%= card._id %>?_method=DELETE" method="POST">
+                <button class="ui red basic button">Delete</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
